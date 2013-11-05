@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.geom.*;
 import java.awt.event.*;
 import javax.swing.undo.*;
+import javax.swing.text.*;
 
 public class TextMain {
 	public static void main(String args[]) {
@@ -41,9 +42,13 @@ public class TextMain {
 				}
 			}
 		});
-		JMenuItem cut = new JMenuItem("Cut",null);
-		JMenuItem copy = new JMenuItem("Copy",null);
-		JMenuItem paste = new JMenuItem("Paste",null);
+
+		JMenuItem cut = new JMenuItem(new DefaultEditorKit.CutAction());
+		cut.setText("Cut");
+		JMenuItem copy = new JMenuItem(new DefaultEditorKit.CopyAction());
+		copy.setText("Copy");
+		JMenuItem paste = new JMenuItem(new DefaultEditorKit.PasteAction());
+		paste.setText("Paste");
 		edit.add(undo);
 		edit.add(redo);
 		edit.add(cut);
