@@ -191,40 +191,7 @@ public class TextMain extends JFrame{
 
                 frame.setVisible(true);
         }
-        public void saveAs() {
-            FileNameExtensionFilter extensionFilter = new FileNameExtensionFilter("Text File", "txt");
-            final JFileChooser saveAsFileChooser = new JFileChooser();
-            saveAsFileChooser.setApproveButtonText("Save");
-            saveAsFileChooser.setFileFilter(extensionFilter);
-            int actionDialog = saveAsFileChooser.showSaveDialog(this);
-            if (actionDialog != JFileChooser.APPROVE_OPTION) {
-               return;
-            }
-         // !! File fileName = new File(SaveAs.getSelectedFile() + ".txt");
-            File file = saveAsFileChooser.getSelectedFile();
-            if (!file.getName().endsWith(".txt")) {
-               file = new File(file.getAbsolutePath() + ".txt");
-            }
-
-            BufferedWriter outFile = null;
-            try {
-               outFile = new BufferedWriter(new FileWriter(file));
-               
-               System.out.print(area.getText());
-               area.write(outFile);
-
-            } catch (IOException ex) {
-               ex.printStackTrace();
-            } finally {
-               if (outFile != null) {
-                  try {
-                     outFile.close();
-                  } catch (IOException e) {}
-               }
-            }
-            
-        }
-        public static void main(String args[]){
+       public static void main(String args[]){
             TextMain prog = new TextMain();
         }
 }
