@@ -20,12 +20,9 @@ public class TextMain extends JFrame{
 
                 JMenuBar bar = new JMenuBar();
                 
-                
-                
                 frame.getContentPane().add(area);
 
                 JMenu file = new JMenu("File");
-                
                 
                 JMenuItem exit = new JMenuItem("Exit",null);
                 exit.addActionListener(new ActionListener() {
@@ -33,11 +30,10 @@ public class TextMain extends JFrame{
                                 System.exit(0);
                         }
                 });
+
                 JMenuItem save = new JMenuItem("Save");
                 save.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                                
-                            
                             FileNameExtensionFilter filter = new FileNameExtensionFilter(
                                     "JPG & GIF Images", "jpg", "gif");
                                 //chooser.setFileFilter(filter);
@@ -56,20 +52,14 @@ public class TextMain extends JFrame{
                                 // TODO Auto-generated catch block
                                 e2.printStackTrace();
                             }
-                           
-                           
-                           
-                           
                         }
                 });
-
 
                 final UndoManager undoer = new UndoManager();
                 
                 JMenuItem open = new JMenuItem("Open");
                 open.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
-                                
                             
                             FileNameExtensionFilter filter = new FileNameExtensionFilter(
                                     "JPG & GIF Images", "jpg", "gif");
@@ -80,7 +70,6 @@ public class TextMain extends JFrame{
                                         chooser.getSelectedFile().getName());}
                                 
                                 String filename = chooser.getSelectedFile().getName();
-                                
                                 
                                 FileReader in;
                                 try {
@@ -97,9 +86,6 @@ public class TextMain extends JFrame{
                 file.add(exit);
                 file.add(save);
                 file.add(open);
-                
-               
-
 
                 JMenu edit = new JMenu("Edit");
                 
