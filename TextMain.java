@@ -55,6 +55,7 @@ public class TextMain extends JFrame{
                         }
                 });
 
+				//Declares the undo manager, which tracks edits by the user
                 final UndoManager undoer = new UndoManager();
                 
                 JMenuItem open = new JMenuItem("Open");
@@ -83,17 +84,19 @@ public class TextMain extends JFrame{
                                 }
                         }
                 });
+
+				//Add menu options to the "file" menu
                 file.add(exit);
                 file.add(save);
                 file.add(open);
 
                 JMenu edit = new JMenu("Edit");
                 
+				//Makes calls to the undo manager to undo or redo the last recorded actions
                 JMenuItem undo = new JMenuItem("Undo",null);
                 undo.addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                                 if(undoer.canUndo()) {
-                                    
                                         undoer.undo();
                                 }
                         }
@@ -107,6 +110,7 @@ public class TextMain extends JFrame{
                         }
                 });
 
+				//Make calls to the DefaultEditorKit to carry out cut and paste to the system clipboard
                 JMenuItem cut = new JMenuItem(new DefaultEditorKit.CutAction());
                 cut.setText("Cut");
                 JMenuItem copy = new JMenuItem(new DefaultEditorKit.CopyAction());
@@ -163,6 +167,7 @@ public class TextMain extends JFrame{
 		search.add(sField);
 		search.add(enter);
 
+				//Add the menus "file", "edit", and "search" to the menubar "bar" 
                 bar.add(file);
                 bar.add(edit);
                 bar.add(search);
